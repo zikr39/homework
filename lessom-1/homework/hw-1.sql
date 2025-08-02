@@ -1,0 +1,25 @@
+----lesson-1
+----1)например данные: именя даты, база данных коллекция данных: база студентов, relational database:  связанные таблицы с помощью primary key, foreign key. Table - это таблица состоит из строк и столбцов
+----2) reliable backup and restore, acid-compliant transactions, high-speed indexing, powerful stored procedures, data replication
+----3)windows and sql server
+----4)
+create database shooldb
+----5)
+use shooldb
+create table students(studentid int primary key, name varchar(50), age int)
+----6)SQL Server-серверная программа для хранения и управления базами данных. SSMS-Программа для работы с SQL Server — позволяет писать запросы, создавать таблицы и управлять данными.
+--SQL-язык, с помощью которого можно общаться с базой данных: пишем запросы, добавляем, удаляем, ищем данные.
+----7)DDL-набор инструкций, помагающие определить и управлять структурой базы данных, с помощью них можно изменять удалять создавать таблицы индексы.
+--DQL-набор команд, которые позволяют выполнять запросы к базе данных и извлекать информацию. например select
+--DML-команды, которые позволяют вставлять, удалять и изменять данные в базе. например insert update delete.
+--DCL-набор команд, которые управляют правами доступа к данным в базе данных. например grant даёт пользоватлям права доступа к базе данных, revoke отзывает эти права
+--TCL-абор команд, которые управляют транзакциями в базе данных. например commit сохраняет все транзакции в базе данных, rollback позволяет отменить их
+----8)
+insert into students values(1,'sardor',19), (2,'davron',18), (3,'islom',18)
+select * from students
+----9)
+restore database AdventureWorksDW2022
+from disk = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\AdventureWorksDW2022.bak'
+with move 'AdventureWorksDW2022' to 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\AdventureWorksDW2022.mdf',
+     move 'AdventureWorksDW2022_log' to 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\AdventureWorksDW2022_log.ldf',
+     replace;
